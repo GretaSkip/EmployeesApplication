@@ -1,0 +1,33 @@
+<div>
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Enter First and Last name</span>
+        </div>
+        <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="firstName" />
+        <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="lastName" />
+        <button type="button" class="btn btn-primary" (click)="AddEmployee()">Add</button>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let employee of employees; index as i">
+                    <th>{{ i + 1 }}</th>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td> <button type="button" class="btn btn-danger" (click)="DeleteEmployee(employee.id)">Delete</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
