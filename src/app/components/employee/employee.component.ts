@@ -22,27 +22,29 @@ export class EmployeeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.employeesService.GetEmployees().subscribe((employeesFromApi) => {
+    this.employeesService.getEmployees().subscribe((employeesFromApi) => {
       this.employees = employeesFromApi;
   })
 }
-public AddEmployee(): void {
+public addEmployee(): void {
   var newEmployee: Employee = {
     id: this.id,
     firstName: this.firstName,
     lastName: this.lastName
   }
 
-  this.employeesService.AddEmployee(newEmployee).subscribe((employeeId) => {
+  this.employeesService.addEmployee(newEmployee).subscribe((employeeId) => {
     newEmployee.id = employeeId;
     this.employees.push(newEmployee);
-  });
+  })
 }
-DeleteEmployee(id: number): void {
-  this.employeesService.DeleteEmployee(id).subscribe(()=> {
+deleteEmployee(id: number): void {
+  this.employeesService.deleteEmployee(id).subscribe(()=> {
     let index = this.employees.map(e => e.id).indexOf(id);
     this.employees.splice(index, 1);
   })
-};
+}
 
+
+  
 }

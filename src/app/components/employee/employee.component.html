@@ -6,7 +6,7 @@
         </div>
         <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="firstName" />
         <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="lastName" />
-        <button type="button" class="btn btn-primary" (click)="AddEmployee()">Add</button>
+        <button type="button" class="btn btn-primary" (click)="addEmployee()">Add</button>
     </div>
 
     <div>
@@ -26,7 +26,9 @@
                     <th>{{ i + 1 }}</th>
                     <td>{{employee.firstName}}</td>
                     <td>{{employee.lastName}}</td>
-                    <td> <button type="button" class="btn btn-danger" (click)="DeleteEmployee(employee.id)">Delete</button></td>
+                    <td> <button type="button" class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+                        <button type="button" class="btn btn-warning" >Update</button>
+                    </td>
                 </tr>
             </tbody>
 

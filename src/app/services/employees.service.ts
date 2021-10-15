@@ -15,15 +15,19 @@ export class EmployeesService {
    }
 
 
-public GetEmployees(): Observable<Employee[]> {
+public getEmployees(): Observable<Employee[]> {
   return this.http.get<Employee[]>("https://localhost:44376/Employee");
 }
 
-public AddEmployee(employee: Employee):Observable<number> {
+public addEmployee(employee: Employee):Observable<number> {
   return this.http.post<number>("https://localhost:44376/Employee", employee);
 }
-public DeleteEmployee(id: number): Observable<Employee> {
+public deleteEmployee(id: number): Observable<Employee> {
   return this.http.delete<Employee>(`https://localhost:44376/Employee/${id}`);
+}
+
+public updateEmployee(employee: Employee): Observable<Employee> {
+  return this.http.put<Employee>(`${"https://localhost:44376/Employee"}/${employee.id}`, employee);
 }
 
 }
